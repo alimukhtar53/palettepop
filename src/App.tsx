@@ -1,5 +1,5 @@
 import { Grid, Card, Text, Container } from "@nextui-org/react";
-import { useState } from "react";
+import styled from "styled-components";
 
 interface Props {
   text: string;
@@ -14,9 +14,14 @@ export default function App() {
         <Card css={{ h: "$20", w: "$36", $$cardColor: color }}>
           <Card.Body></Card.Body>
         </Card>
-        <Text h6 size={15} color="black" css={{ m: "auto" }}>
-          {text}
-        </Text>
+        <Div>
+          <Text h6 size={15} color="black" css={{ ml: "$5", mt: "$2" }}>
+            {text}
+          </Text>
+          <Text h6 size={15} color="black" css={{ mr: "$5", mt: "$2" }}>
+            {color?.toUpperCase()}
+          </Text>
+        </Div>
       </div>
     );
   };
@@ -32,3 +37,9 @@ export default function App() {
     </Container>
   );
 }
+
+const Div = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+`;
